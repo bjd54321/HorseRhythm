@@ -1,3 +1,4 @@
+//HorseRhythm
 package com.example.horserhythm;
 
 import android.annotation.TargetApi;
@@ -78,10 +79,10 @@ public class PatientActivity extends Activity {
         TextView bpmText = (TextView) findViewById(R.id.bps);
         bpmText.setText(""+bpm);
         
-        TextView timeSignatureText = (TextView) findViewById(R.id.timesignature);
-        timeSignatureText.setText(""+beats+"/"+noteValue);
+//        TextView timeSignatureText = (TextView) findViewById(R.id.timesignature);
+  //      timeSignatureText.setText(""+beats+"/"+noteValue);
         
-        plusButton = (Button) findViewById(R.id.plus);
+/*        plusButton = (Button) findViewById(R.id.plus);
         plusButton.setOnLongClickListener(plusListener);
         
         minusButton = (Button) findViewById(R.id.minus);
@@ -89,8 +90,8 @@ public class PatientActivity extends Activity {
         
         currentBeat = (TextView) findViewById(R.id.currentBeat);
         currentBeat.setTextColor(Color.GREEN);
-        
-        Spinner beatSpinner = (Spinner) findViewById(R.id.beatspinner);
+*/        
+//        Spinner beatSpinner = (Spinner) findViewById(R.id.beatspinner);
         ArrayAdapter<Beats> arrayBeats =
         new ArrayAdapter<Beats>(this,
       	      android.R.layout.simple_spinner_item, Beats.values());
