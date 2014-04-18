@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HorseRhythm</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="button_start">Start</string>
+    <string name="button_stop">Stop</string>
+    <string name="button_save">Save</string>
+    <string name="button_instructor">Instructor</string>
+    <string name="button_patient">Patient</string>
+    <string name="title_activity_patient">PatientActivity</string>
+    <string name="title_activity_instructor">InstructorActivity</string>
+	<string name="minus">-</string>
+	<string name="plus">+</string>
+	<string name="bps">BPS</string>
+    
+</resources>
