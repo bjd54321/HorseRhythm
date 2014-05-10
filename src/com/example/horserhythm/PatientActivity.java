@@ -55,6 +55,7 @@ public class PatientActivity extends Activity {
     private Handler mHandler;
     
     // Adding a comment to test GitHub
+    // Adding comment number 2
     
     // have in mind that: http://stackoverflow.com/questions/11407943/this-handler-class-should-be-static-or-leaks-might-occur-incominghandler
     // in this case we should be fine as no delayed messages are queued
