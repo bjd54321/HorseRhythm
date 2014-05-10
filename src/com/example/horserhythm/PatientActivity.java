@@ -1,6 +1,15 @@
-//HorseRhythm
 package com.example.horserhythm;
 
+/*import pntanasis.android.metronome.Beats;
+import pntanasis.android.metronome.Metronome;
+import pntanasis.android.metronome.NoteValues;
+import pntanasis.android.metronome.R;
+import pntanasis.android.metronome.MetronomeActivity.MetronomeAsyncTask;*/
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -11,10 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.NavUtils;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
@@ -26,6 +32,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+
 public class PatientActivity extends Activity {
 
 	private final short minBpm = 40;
@@ -33,11 +40,11 @@ public class PatientActivity extends Activity {
 	
 	private short bpm = 100;
 	private short noteValue = 4;
-	private short beats = 4;
+	private short beats = 1;
 	private short volume;
 	private short initialVolume;
-	private double beatSound = 2440;
-	private double sound = 6440;
+	private double beatSound = 2440;//2
+	private double sound = 6440;//6
 	private AudioManager audio;
     private MetronomeAsyncTask metroTask;
     
@@ -54,35 +61,30 @@ public class PatientActivity extends Activity {
             @Override
             public void handleMessage(Message msg) {
             	String message = (String)msg.obj;
-/*            	if(message.equals("1"))
+            	if(message.equals("1"))
             		currentBeat.setTextColor(Color.GREEN);
             	else
             		currentBeat.setTextColor(getResources().getColor(R.color.yellow));
-*/            	currentBeat.setText(message);
+            	currentBeat.setText(message);
             }
         };
     }
-
 	
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_patient);
-		// Show the Up button in the action bar.
-		//setupActionBar();
-
-		
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {    	
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_patient);
         metroTask = new MetronomeAsyncTask();
         /* Set values and listeners to buttons and stuff */
         
         TextView bpmText = (TextView) findViewById(R.id.bps);
         bpmText.setText(""+bpm);
         
-//        TextView timeSignatureText = (TextView) findViewById(R.id.timesignature);
-  //      timeSignatureText.setText(""+beats+"/"+noteValue);
+        TextView timeSignatureText = (TextView) findViewById(R.id.timesignature);
+        timeSignatureText.setText(""+beats+"/"+noteValue);
         
-/*        plusButton = (Button) findViewById(R.id.plus);
+        plusButton = (Button) findViewById(R.id.plus);
         plusButton.setOnLongClickListener(plusListener);
         
         minusButton = (Button) findViewById(R.id.minus);
@@ -90,13 +92,13 @@ public class PatientActivity extends Activity {
         
         currentBeat = (TextView) findViewById(R.id.currentBeat);
         currentBeat.setTextColor(Color.GREEN);
-*/        
-//        Spinner beatSpinner = (Spinner) findViewById(R.id.beatspinner);
+        
+        Spinner beatSpinner = (Spinner) findViewById(R.id.beatspinner);
         ArrayAdapter<Beats> arrayBeats =
         new ArrayAdapter<Beats>(this,
       	      android.R.layout.simple_spinner_item, Beats.values());
         beatSpinner.setAdapter(arrayBeats);
-        beatSpinner.setSelection(Beats.four.ordinal());
+        beatSpinner.setSelection(Beats.one.ordinal());
         arrayBeats.setDropDownViewResource(R.layout.spinner_dropdown);
         beatSpinner.setOnItemSelectedListener(beatsSpinnerListener);
         
@@ -117,20 +119,8 @@ public class PatientActivity extends Activity {
         volumebar.setMax(audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
         volumebar.setProgress(volume);
         volumebar.setOnSeekBarChangeListener(volumeListener);
-
-	}
-
-	/**
-	 * Set up the {@link android.app.ActionBar}, if the API is available.
-	 */
-/*	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
-		}
-	}*/
-	
-	
+    }
+    
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public synchronized void onStartStopClick(View view) {
     	Button button = (Button) view;
@@ -337,10 +327,26 @@ public class PatientActivity extends Activity {
 		}
     	
     }
-
-
 	
 	
+	
+/*	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_patient);
+		// Show the Up button in the action bar.
+		setupActionBar();
+	}
+
+	*//**
+	 * Set up the {@link android.app.ActionBar}.
+	 *//*
+	private void setupActionBar() {
+
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -363,6 +369,6 @@ public class PatientActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
+	}*/
 
 }

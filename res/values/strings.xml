@@ -13,6 +13,15 @@
     <string name="title_activity_instructor">InstructorActivity</string>
 	<string name="minus">-</string>
 	<string name="plus">+</string>
-	<string name="bps">BPS</string>
+	<string name="bps">bps</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <color name="yellow">#DEE054</color>
+    <string name="timesignature">time signature</string>
+    <string name="dash">/</string>
+    <string name="volume">volume</string>
+    <color name="black">#000000</color>
+    <string name="one">1</string>    
+	
     
 </resources>

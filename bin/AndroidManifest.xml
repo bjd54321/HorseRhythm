@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.example.horserhythm"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.horserhythm"
     android:versionCode="1"
-    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -26,6 +27,8 @@
         <activity
             android:name="com.example.horserhythm.PatientActivity"
             android:label="@string/title_activity_patient"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.example.horserhythm.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -34,6 +37,8 @@
         <activity
             android:name="com.example.horserhythm.InstructorActivity"
             android:label="@string/title_activity_instructor"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"            
             android:parentActivityName="com.example.horserhythm.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
