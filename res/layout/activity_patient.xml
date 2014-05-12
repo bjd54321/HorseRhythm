@@ -4,9 +4,15 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Target BPM" />
 
         <TextView
             android:id="@+id/bps"
@@ -18,6 +24,18 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/yellow"
             android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/measuredBPM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MeasuredBPM" />
 
         <TextView
             android:id="@+id/timesignature"
@@ -42,6 +60,25 @@
             android:textColor="@color/yellow"
             android:textSize="30sp"
             android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BPM difference" />
+
+        <TextView
+            android:id="@+id/BPMdiffTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -142,5 +179,10 @@
         android:onClick="onStartStopClick"
         android:text="@string/start"
         android:textSize="80dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+    </LinearLayout>
 
 </LinearLayout>
