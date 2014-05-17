@@ -420,6 +420,10 @@ public class PatientActivity extends Activity implements SensorEventListener {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void WiFiStamFunction(){
+		
+	}
 
 
 }
