@@ -10,12 +10,15 @@ import pntanasis.android.metronome.MetronomeActivity.MetronomeAsyncTask;*/
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
+import android.net.wifi.p2p.WifiP2pManager;
+import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,6 +39,10 @@ import android.widget.TextView;
 
 public class PatientActivity extends Activity implements SensorEventListener {
 
+	private final IntentFilter intentFilter = new IntentFilter();
+	Channel mChannel;
+	WifiP2pManager mManager;
+	
 	private final short minBpm = 40;
 	private final short maxBpm = 208;
 
@@ -142,6 +149,23 @@ public class PatientActivity extends Activity implements SensorEventListener {
 				.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 		mStepDetectorSensor = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+		
+
+		//  Indicates a change in the Wi-Fi P2P status.
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
+
+		// Indicates a change in the list of available peers.
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
+
+		// Indicates the state of Wi-Fi P2P connectivity has changed.
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+
+		// Indicates this device's details have changed.
+		intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+	    mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+	    mChannel = mManager.initialize(this, getMainLooper(), null);		
+		
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -421,9 +445,5 @@ public class PatientActivity extends Activity implements SensorEventListener {
 
 	}
 	
-	public void WiFiStamFunction(){
-		
-	}
-
 
 }
